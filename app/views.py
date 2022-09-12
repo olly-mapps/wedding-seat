@@ -78,10 +78,16 @@ def relationship_matrix(param):
         csv_input = request.files.get('csvfile')
         if csv_input and allowed_file(csv_input.filename):
             filename = secure_filename(csv_input.filename)
-            save_location = os.path.join('app/tmp', filename)
+            save_location = os.path.join(r'app\tmp', filename)
             csv_input.save(save_location)
 
-            session["np_input"] = scripts.process_csv(save_location)
+            csv_list_and_names = scripts.process_csv(save_location)
+
+            np_input = csv_list_and_names[0]
+            names = csv_list_and_names[1]
+
+            session["np_input"] = np_input
+            session["names"] = names
 
             return redirect(url_for('run_model', use_param = use_param))
 
@@ -108,7 +114,8 @@ General test view (outputs whatever is passed to it)
 @app.route("/test_2<use_param>", methods = ['GET', 'POST'])
 def test_2(use_param):
     #return render_template('results.html', content = table)
-    return use_param
+    table_list = session.get('table_list')
+    return table_list
 
 '''
 View to run model
@@ -121,6 +128,7 @@ def run_model(use_param):
     result_raw = model.run_model(use_param_2, use_np_input)
     session["result_raw"] = result_raw
     return redirect(url_for('display_result', use_param_2 = use_param_2)) 
+    return result_raw
 
 '''
 View to display the result
@@ -132,8 +140,9 @@ def display_result(use_param_2):
     guest_count = use_param_2["guest_count"]
     use_result_raw = session.get('result_raw', None)
     names = session.get("names", None)
-    #return scripts.display_model(use_result_raw, names)
     
     table_list = scripts.display_model(use_result_raw, names)
+    session["table_list"] = table_list
+    #return redirect(url_for('test_2', use_param = use_param_2))
     return render_template('result.html', table_list = table_list)
 

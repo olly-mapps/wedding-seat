@@ -17,14 +17,19 @@ Function to process csv input upon upload
 
 def process_csv(csv_input):
 
+    csv_list_and_names=[]
+
     with open(csv_input) as f:
-        df = pd.read_csv(f)
+        df = pd.read_csv(f, encoding = "utf-8")
     
     df.fillna(0, inplace = True)
+    names = df['Guest']
     df.drop(['Guest'], axis = 1, inplace = True)
     csv_list = df.values.tolist()
 
-    return csv_list
+    csv_list_and_names.append(csv_list)
+    csv_list_and_names.append(names.tolist())
+    return csv_list_and_names
 
 '''
 Function to transfer string input to suitable numbers
@@ -101,12 +106,10 @@ def display_model(model_result, names):
     suggested_arrangement_by_tableNo=suggested_arrangement.sort_values(by=['Assigned Table No'])
     suggested_arrangement_by_tableNo[["Assigned Table No"]]
 
-    #return suggested_arrangement_by_tableNo.to_html()
-
 
     table_list = []
 
     for table in range(1, table_count):
-        table_list.append(plan_cutter(suggested_arrangement_by_tableNo, table).to_html())
+        table_list.append(plan_cutter(suggested_arrangement_by_tableNo, table).to_html(classes = "\" style = \"display:inline-table; margin: 10px;\""))
 
     return table_list

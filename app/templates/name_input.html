@@ -11,20 +11,20 @@
                 <tr>
                     <div class = "form-group">
                         <td><label for="Bride">Bride</label></td>
-                        <td><input type = "string" name = "Bride" required></td>
+                        <td><input type = "string" name = "Bride"></td>
                     </div>
                 </tr>
                 <tr>
                     <div class = "form-group">
                         <td><label for="Groom">Groom</label></td>
-                        <td><input type = "string" name = "Groom" required></td>
+                        <td><input type = "string" name = "Groom"></td>
                     </div>
                 </tr>
                 {% for name in range(guest_count-2) %}
                 <tr>
                     <div class = "form-group">
                         <td><label for="Guest {{name+3}}">Guest {{name+3}} </label></td>
-                        <td><input type = "string" name = "{{name}}" required></td>
+                        <td><input type = "string" name = "{{name}}"></td>
                     </div>
                 </tr>
                 {% endfor %}
