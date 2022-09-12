@@ -1,0 +1,7 @@
+Flask == 2.2.2
+numpy
+pandas
+gurobipy
+datetime
+scipy
+flask-wtf

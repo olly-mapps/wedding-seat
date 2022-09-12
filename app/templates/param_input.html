@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wedding Seat Solver</title>
+        <h1> Please Input Information About The Problem </h1>
+    </head>
+    <body>
+        <form method="POST" action = "">
+            {{ form.hidden_tag() }}
+            <table>
+                <tr>
+                    <div class = "form-group">
+                        <td>{{ form.guest_count.label(class = "form-control-label") }}</td>
+                        <td>{{ form.guest_count(class = "form-control form-control-lg") }}</td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class = "form-group">
+                        <td>{{ form.child_count.label(class = "form-control-label") }}</td>
+                        <td>{{ form.child_count(class = "form-control form-control-lg") }}</td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class = "form-group">
+                        <td>{{ form.table_size.label(class = "form-control-label") }}</td>
+                        <td>{{ form.table_size(class = "form-control form-control-lg") }}</td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class = "form-group">
+                        <td>{{ form.child_table_size.label(class = "form-control-label") }}</td>
+                        <td>{{ form.child_table_size(class = "form-control form-control-lg") }}</td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class = "form-group">
+                        <td>{{ form.submit(class = "btn btn-outline-info") }}</td>
+                    </div>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

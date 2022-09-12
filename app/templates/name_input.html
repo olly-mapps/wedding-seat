@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="static/style.css">
+        <title>Wedding Seat Solver</title>
+        <h1> Please Input The Names of your guests </h1>
+    </head>
+    <body>
+        <form method="POST" action = "">
+            <table>
+                <tr>
+                    <div class = "form-group">
+                        <td><label for="Bride">Bride</label></td>
+                        <td><input type = "string" name = "Bride" required></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class = "form-group">
+                        <td><label for="Groom">Groom</label></td>
+                        <td><input type = "string" name = "Groom" required></td>
+                    </div>
+                </tr>
+                {% for name in range(guest_count-2) %}
+                <tr>
+                    <div class = "form-group">
+                        <td><label for="Guest {{name+3}}">Guest {{name+3}} </label></td>
+                        <td><input type = "string" name = "{{name}}" required></td>
+                    </div>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <div class = "form-group">
+                        <td><input type = "submit" name = "Submit" value = "Submit"></td>
+                    </div>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
