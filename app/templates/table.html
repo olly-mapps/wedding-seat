@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wedding Seat Solver</title>
+    <h1>Please Input Guest Relationships Into The Array</h1>
+</head>
+<body>
+    <table>
+        <tr><td>Please use the key to input relationships: </td></tr>
+        <tr>
+            <td>Bride/Groom:</td> 
+            <td>BG</td>
+        </tr>
+        <tr>
+            <td>Family of the Bride/Groom:</td>
+            <td>BG Family</td>
+        </tr>
+        <tr>
+            <td>Friends of the Bride/Groom:</td>
+            <td>BG Friend</td>
+        </tr>
+        <tr>
+            <td>Guest Couple:</td>
+            <td>Couple</td>
+        </tr>
+        <tr>
+            <td>Guest Family:</td>
+            <td>Family</td>
+        </tr>
+        <tr>
+            <td>Guest Friends:</td>
+            <td>Friend</td>
+        </tr>
+        <tr>
+            <td>General Seating Preference:</td>
+            <td>Preference</td>
+        </tr>
+        <tr>
+            <td>General Negative Preference:</td>
+            <td>Negative Preference</td>
+        </tr>
+        <tr>
+            <td>Should Sit Apart</td>
+            <td>Apart</td>
+        </tr>
+    </table>
+    <p> </p>
+    <form method = "POST">
+        <table>
+            <tr>
+                <th></th>
+                {% for name in names %}
+                <th>{{ name }}</th>
+                {% endfor %}
+            </tr>
+            {% set i = namespace(counter = names|length) %}
+            {% for row in range(names|length) %}
+            <tr>
+                <th>{{ names[row] }}</th>
+                {% for input_column in range(names|length - i.counter) %}
+                <td><input type = "string" name = "{{ row, input_column }}"></td>
+                {% endfor %}
+                {% for black_column in range(i.counter) %}
+                <td style = "background-color:black"> &nbsp; </td>
+                {% endfor %}
+                {% set i.counter = i.counter - 1 %}
+            </tr>
+            {% endfor %}
+        </table>
+        <input type = "submit" name = "Submit" value = "Submit">
+    </form>
+    <form action = "" method = "POST" enctype = "multipart/form-data">
+        <label for="csvfile">File:</label>
+        <input type = "file" name = "csvfile" value ="csv"><br />
+        <button>Upload</button>
+    </form>
+</body>
+</html>

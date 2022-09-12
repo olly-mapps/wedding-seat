@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    {% for table in table_list -%} 
+    {{ table|safe }}
+    <p></p>
+    {%- endfor %}
+
+</body>
+</html>
