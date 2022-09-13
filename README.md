@@ -6,6 +6,6 @@ Using a CSV file or manual input, user can input relationships between guests. T
 First input your WLS License details into the relevant json, then:
 
 ```
-docker build -t wedding-seat .      
-docker run -p 8080:8080 wedding-seat
+$ docker build -t wedding-seat .      
+$ docker run -p 8080:8080 wedding-seat
 ```
