@@ -38,10 +38,23 @@ def run_model(param, relationships_matrix_raw):
     CHILD_TABLES = [child_table for child_table in range(table_count, table_count+child_table_count)]
 
     '''
-    Model
+    Environment and Model
     '''
+    
+    with open("gurobi_lic.json") as f:
+        lic = json.load(f)
 
-    m = gp.Model("wedding-seat")
+
+    env = gp.Env(empty = True)
+    env.setParam('WLSACCESSID', lic["WLSACCESSID"])
+    env.setParam('WLSSECRET', lic["WLSSECRET"])
+    env.setParam('LICENSEID', int(lic["LICENSEID"]))
+
+    env.start()
+
+    m = gp.Model("wedding-seat", env = env)
+
+    #m = gp.Model("wedding-seat")
 
     '''
     Decision Variables

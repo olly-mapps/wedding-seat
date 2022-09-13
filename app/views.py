@@ -78,7 +78,7 @@ def relationship_matrix(param):
         csv_input = request.files.get('csvfile')
         if csv_input and allowed_file(csv_input.filename):
             filename = secure_filename(csv_input.filename)
-            save_location = os.path.join(r'app\tmp', filename)
+            save_location = os.path.join(r'app/tmp', filename)
             csv_input.save(save_location)
 
             csv_list_and_names = scripts.process_csv(save_location)
