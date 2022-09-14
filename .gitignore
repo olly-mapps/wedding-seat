@@ -1,0 +1,4 @@
+venv/
+gurobi_lic.json
+pycache/
+.vs/

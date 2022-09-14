@@ -1,0 +1,66 @@
+<!-- Variables we have:
+	guest_count 
+-->
+
+
+<!-- TODO:
+	1.FINISH INDIVIDUAL LIST
+	2. TIDY UP
+	3. IMPLEMENT -->
+
+	
+<!DOCTYPE html>
+<html>
+<head>
+	<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type = "text/javascript" src = "..\static\js\jsscript.js"></script>
+	<link rel="stylesheet" type="text/css" href = "..\static\styles.css">
+	<title>Wedding Seat Solver</title>
+</head>
+<body>
+	<h1>Please Input Guest Names</h1>
+
+	<div class = "table-add">
+		<button type = "button" id = "add-group">Add Group</button>
+		<button type = "button" id = "add-person">Add Person</button>
+	</div>
+
+	<div class = "group-list-div">
+		<table id = "group-list-table" class = "group-list-div">
+			<tr id = "row0">
+				<td>
+					<div id = "name-input-1" class = "name-input">
+						<input type = "text" id = "group-1-name">
+						<button type = "button" class = "guest-name" id="guest-name-1">Set Group Name</button>
+					</div>
+					<div class = "group-type">
+						<form id = "group-1-type">
+							<select>
+								<option>Family</option>
+								<option>Friends</option>
+								<option>Couple</option>
+								<option>Other</option>
+							</select>
+						</form>
+					</div>
+					<div id = "group-input-1" class = "group-input">
+						<ol class = "group-list" id= "group-1"></ol>
+						<input type="text" id = "new-guest-1">
+						<button type="button" class = "add-guest" id="add-guest-1">Add Guest</button>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class = "individual-list-div" id = "individual-list-div">
+		<table id = "individual-list">
+			<tr><td> 
+				<input class = "individual-name" id = "individual-name-1" placeholder="Please Input Name"> 
+				<button id = 'set-individual-name-" + name_count + "'>Set Name</button>
+			</td></tr>
+		</table>
+	</div>
+
+</body>
+</html>

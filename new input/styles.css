@@ -1,0 +1,41 @@
+.table-add {
+
+    float:none;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 50px;
+}  
+
+.group-type {
+    float:left;
+}
+
+.group-input {
+    display: none;
+}
+
+.name-input {
+    float:left;
+    padding-right: 10px;
+}
+
+.group-list {
+    list-style: none;
+    padding: 15px;
+}
+
+.group-list-div {
+    float:left
+}
+
+.individual-list-div {
+    float: left;
+    display: none;
+}
+
+td {
+    vertical-align: top;
+    padding: 10px;
+    outline-style:groove;
+}
+
